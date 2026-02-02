@@ -28,6 +28,9 @@
 - [x] Add Google Analytics script (G-T8NTXJGES7)
 - [x] Generate sitemap.xml with all pages and products
 - [x] Generate robots.txt allowing all crawlers
+- [x] Add whatsapp_click event tracking
+- [x] Add phone_click event tracking
+- [x] Add form_submit event tracking
 
 ## 🚀 Optional Next Steps
 - [ ] Deploy to Netlify
