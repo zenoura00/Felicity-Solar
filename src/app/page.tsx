@@ -4,6 +4,7 @@ import CampaignSection from "@/components/CampaignSection";
 import SolutionsSection from "@/components/SolutionsSection";
 import ProductsShowcase from "@/components/ProductsShowcase";
 import CustomSolutions from "@/components/CustomSolutions";
+import LeadSection from "@/components/LeadSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <CustomSolutions />
       <SolutionsSection />
       <ProductsShowcase />
+      <LeadSection />
       <Footer />
     </main>
   );

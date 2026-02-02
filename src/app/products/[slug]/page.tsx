@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import Image from "next/image";
-import { ChevronLeft, Check, Phone, Mail } from "lucide-react";
+import ProductPageClient from "./ProductPageClient";
 
 const products = [
   { id: 1, slug: "sccm8048-p", name: "SCCM8048-P", category: "المكونات الرئيسية", categoryId: "components", image: "https://ext.same-assets.com/3210097289/2503681057.png", power: "80A", voltage: "48V", type: "MPPT" },
@@ -83,89 +82,5 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const related = getRelated(product.categoryId, product.id);
 
-  return (
-    <main className="min-h-screen bg-white">
-      <Header />
-
-      <div className="pt-24 pb-4 bg-gray-50">
-        <div className="container mx-auto px-4 flex items-center gap-2 text-sm">
-          <Link href="/" className="text-gray-600 hover:text-orange-500">الرئيسية</Link>
-          <ChevronLeft className="w-4 h-4 text-gray-400" />
-          <Link href="/products" className="text-gray-600 hover:text-orange-500">المنتجات</Link>
-          <ChevronLeft className="w-4 h-4 text-gray-400" />
-          <span className="text-gray-900">{product.name}</span>
-        </div>
-      </div>
-
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-gray-50 rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
-              <Image
-                src={product.image}
-                alt={product.name}
-                width={400}
-                height={320}
-                className="max-h-80 object-contain"
-                loading="eager"
-                quality={75}
-              />
-            </div>
-
-            <div>
-              {product.isNew && <span className="inline-block bg-orange-500 text-white text-sm px-3 py-1 rounded-full mb-4">جديد</span>}
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">{product.name}</h1>
-              <p className="text-orange-500 font-medium mb-6">{product.category}</p>
-
-              <div className="bg-gray-50 rounded-xl p-6 mb-8">
-                <h3 className="font-semibold text-gray-900 mb-4">المواصفات</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2"><Check className="w-5 h-5 text-orange-500" /><span>القدرة: <strong>{product.power}</strong></span></div>
-                  <div className="flex items-center gap-2"><Check className="w-5 h-5 text-orange-500" /><span>الجهد: <strong>{product.voltage}</strong></span></div>
-                  <div className="flex items-center gap-2"><Check className="w-5 h-5 text-orange-500" /><span>النوع: <strong>{product.type}</strong></span></div>
-
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <a href="tel:+963981117805" className="flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600">
-                  <Phone className="w-5 h-5" />طلب عرض سعر
-                </a>
-                <a href="tel:+963981117805" className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:border-orange-500">
-                  <Phone className="w-5 h-5" />اتصل الآن
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {related.length > 0 && (
-        <section className="py-12 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">منتجات مشابهة</h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {related.map((p) => (
-                <Link key={p.id} href={`/products/${p.slug}`} className="bg-white border rounded-xl p-4 hover:shadow-lg transition-all">
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    width={200}
-                    height={96}
-                    className="w-full h-24 object-contain mb-3"
-                    loading="lazy"
-                    quality={70}
-                  />
-                  <h3 className="font-semibold text-gray-900 text-sm">{p.name}</h3>
-                  <p className="text-orange-500 text-xs">{p.category}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      <Footer />
-    </main>
-  );
+  return <ProductPageClient product={product} related={related} />;
 }
