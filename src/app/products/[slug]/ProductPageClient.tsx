@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ChevronLeft, Check, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LeadForm from "@/components/LeadForm";
 import { useLanguage } from "@/lib/language-context";
 
 interface Product {
@@ -49,9 +48,9 @@ export default function ProductPageClient({ product, related }: ProductPageClien
 
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Product Image */}
-            <div className="lg:col-span-1 bg-gray-50 rounded-2xl p-8 flex items-center justify-center min-h-[300px]">
+            <div className="bg-gray-50 rounded-2xl p-8 flex items-center justify-center min-h-[300px]">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -64,7 +63,7 @@ export default function ProductPageClient({ product, related }: ProductPageClien
             </div>
 
             {/* Product Info */}
-            <div className="lg:col-span-1">
+            <div>
               {product.isNew && (
                 <span className="inline-block bg-orange-500 text-white text-sm px-3 py-1 rounded-full mb-4">
                   {language === "ar" ? "جديد" : "New"}
@@ -102,11 +101,6 @@ export default function ProductPageClient({ product, related }: ProductPageClien
                   {language === "ar" ? "واتساب" : "WhatsApp"}
                 </a>
               </div>
-            </div>
-
-            {/* Lead Form */}
-            <div className="lg:col-span-1">
-              <LeadForm source="Product Page" productName={product.name} />
             </div>
           </div>
         </div>

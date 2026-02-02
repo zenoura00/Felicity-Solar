@@ -2,7 +2,6 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LeadForm from "@/components/LeadForm";
 import { CheckCircle, Zap, Shield, Leaf } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
