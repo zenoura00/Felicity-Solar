@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Phone, MapPin, Instagram, Facebook } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
+import { trackPhoneClick } from "@/lib/analytics";
 
 const solutionLinks = [
   { nameAr: "نظام تجاري 50 كيلوواط", nameEn: "50kW Commercial System", href: "/solutions/commercial" },
@@ -83,21 +84,21 @@ export default function Footer() {
 
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                <a href="tel:+963981117805" className="text-xs hover:text-orange-500 transition-colors">
+                <a href="tel:+963981117805" onClick={() => trackPhoneClick("Footer Store")} className="text-xs hover:text-orange-500 transition-colors">
                   {language === "ar" ? "المحل:" : "Store:"} +963 981 117 805
                 </a>
               </div>
 
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                <a href="tel:0980388164" className="text-xs hover:text-orange-500 transition-colors">
+                <a href="tel:0980388164" onClick={() => trackPhoneClick("Footer Technical Support")} className="text-xs hover:text-orange-500 transition-colors">
                   {language === "ar" ? "الدعم الفني:" : "Technical Support:"} 0980388164
                 </a>
               </div>
 
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                <a href="tel:0112225650" className="text-xs hover:text-orange-500 transition-colors">
+                <a href="tel:0112225650" onClick={() => trackPhoneClick("Footer Landline")} className="text-xs hover:text-orange-500 transition-colors">
                   {language === "ar" ? "الهاتف الأرضي:" : "Landline:"} 011-2225650
                 </a>
               </div>

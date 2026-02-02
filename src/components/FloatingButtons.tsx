@@ -1,6 +1,7 @@
 "use client";
 
 import { Phone } from "lucide-react";
+import { trackWhatsAppClick, trackPhoneClick } from "@/lib/analytics";
 
 export default function FloatingButtons() {
   const storeNumber = "+963981117805"; // رقم المحل الأساسي
@@ -14,6 +15,7 @@ export default function FloatingButtons() {
         href={`https://wa.me/${whatsappNumber}`}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={trackWhatsAppClick}
         className="w-11 h-11 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300"
         aria-label="WhatsApp"
       >
@@ -30,6 +32,7 @@ export default function FloatingButtons() {
       {/* Store Call Button - رقم المحل (برتقالي) */}
       <a
         href={`tel:${storeNumber}`}
+        onClick={() => trackPhoneClick("Store Phone")}
         className="w-11 h-11 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:bg-orange-600 hover:scale-110 transition-all duration-300"
         aria-label="Store Phone"
       >
@@ -39,6 +42,7 @@ export default function FloatingButtons() {
       {/* Technical Support Button - الدعم الفني (أزرق) مع أيقونة سماعات الرأس */}
       <a
         href={`tel:${technicalSupport}`}
+        onClick={() => trackPhoneClick("Technical Support")}
         className="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 hover:scale-110 transition-all duration-300"
         aria-label="Technical Support"
       >

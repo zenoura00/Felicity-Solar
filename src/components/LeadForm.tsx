@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
+import { trackFormSubmit } from "@/lib/analytics";
 
 interface LeadFormProps {
   source: string; // Where the lead came from (product name, page, etc.)
@@ -40,6 +41,7 @@ export default function LeadForm({ source, productName, compact = false }: LeadF
       if (response.ok) {
         setIsSubmitted(true);
         setFormData({ name: "", phone: "", message: "" });
+        trackFormSubmit(source);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
