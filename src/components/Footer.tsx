@@ -106,18 +106,22 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="flex gap-3 mt-4">
-              <Link
-                href="#"
+              <a
+                href="https://www.facebook.com/share/16guTBAiGz/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
               >
                 <Facebook className="w-4 h-4" />
-              </Link>
-              <Link
-                href="#"
+              </a>
+              <a
+                href="https://www.instagram.com/felicitysolar.sy?igsh=aGVhY2ZraDZ3Z3Zk&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
               >
                 <Instagram className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
 
